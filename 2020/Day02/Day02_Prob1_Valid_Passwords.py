@@ -1,7 +1,7 @@
 import re
 
 # Puzzle_input
-with open('Day2_Input.txt', 'r') as puzzle_input:
+with open('Day02_Input.txt', 'r') as puzzle_input:
     passwords = puzzle_input.read().split('\n')
 
 # Separate the input
@@ -13,8 +13,7 @@ for pass_list in passwords:
 valid = 0
 for pass_list in processed_passwords:
     password = pass_list[4]
-    letter = pass_list[2]
-    if (password[int(pass_list[0]) - 1] == letter) != (password[int(pass_list[1]) - 1] == letter):    # != is an XOR operator
+    if int(pass_list[0]) <= password.count(pass_list[2]) <= int(pass_list[1]):
         valid += 1
 
 print(valid)

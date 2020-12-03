@@ -1,5 +1,5 @@
 # Puzzle_input
-with open('Day1_Input.txt', 'r') as puzzle_input:
+with open('Day01_Input.txt', 'r') as puzzle_input:
     expense_report = puzzle_input.read().split('\n')
 
 expense_report = list(map(int, expense_report))
