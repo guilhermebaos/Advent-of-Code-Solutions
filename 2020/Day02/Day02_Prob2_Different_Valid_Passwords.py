@@ -1,6 +1,6 @@
 import re
 
-# Puzzle_input
+# Puzzle Input
 with open('Day02_Input.txt', 'r') as puzzle_input:
     passwords = puzzle_input.read().split('\n')
 

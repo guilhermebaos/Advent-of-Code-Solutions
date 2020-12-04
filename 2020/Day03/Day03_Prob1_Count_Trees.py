@@ -1,4 +1,4 @@
-# Puzzle_input
+# Puzzle Input
 with open('Day03_Input.txt', 'r') as puzzle_input:
     map_trees = puzzle_input.read().split('\n')
 

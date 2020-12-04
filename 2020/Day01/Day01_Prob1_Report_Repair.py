@@ -1,4 +1,4 @@
-# Puzzle_input
+# Puzzle Input
 with open('Day01_Input.txt', 'r') as puzzle_input:
     expense_report = puzzle_input.read().split('\n')
 
