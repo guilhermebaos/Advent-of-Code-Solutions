@@ -21,7 +21,7 @@ while len(bags_to_explore) != 0:        # While we have bags to explore
     bags_to_add = set()                 # Temporary set of other bags to explore later, and to add as options available
     for rule in bag_rules:              # Explore each rule (Bag connections)
         for child in rule[1:]:          # See the contents of each Bag
-            if bags_to_explore.__contains__(child[1]):      # Find if the contents are what we are looking for
+            if child[1] in bags_to_explore:      # Find if the contents are what we are looking for
                 bags_to_add.update({rule[0]})
 
     # Add bags we found to the options available and search those bags
