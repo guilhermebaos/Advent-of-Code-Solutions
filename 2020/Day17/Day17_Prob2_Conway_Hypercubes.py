@@ -138,3 +138,5 @@ for cycle in range(6):
 # Show the number of active cubes
 print(zero_layer + 2 * negative_layers)
 print(zero_layer, negative_layers)
+
+# See the note-to-self on Prob1

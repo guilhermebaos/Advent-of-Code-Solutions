@@ -116,6 +116,6 @@ for cycle in range(6):
 print(sum(cubes_state))
 
 # Note to self: While doing part 2, I understood it was possible to calculate the states for cubes when z > 0, because
-# the infinite 3D space will be symmetric by the initial 2D plane
+# the infinite 3D space will be symmetric by the initial 2D plane. This also applies to Part 2.
 # Problem: I don't know right now how to calculate the impact of said symmetric planes, maybe double the effect of some
 # neighbors?
