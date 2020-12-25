@@ -1,0 +1,2 @@
+# Show the result
+print(':)')
