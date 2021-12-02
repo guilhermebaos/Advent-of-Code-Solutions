@@ -1,8 +1,8 @@
 # Puzzle Input ----------
-with open('Day01_Input.txt', 'r') as file:
+with open('Day01-Input.txt', 'r') as file:
     puzzle = list(map(int, file.read().split('\n')))
 
-with open('Day01_Test01.txt', 'r') as file:
+with open('Day01-Test01.txt', 'r') as file:
     test01 = list(map(int, file.read().split('\n')))
 
 
