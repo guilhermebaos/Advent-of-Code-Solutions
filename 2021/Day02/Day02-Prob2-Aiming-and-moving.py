@@ -9,19 +9,14 @@ with open('Day02-Test01.txt', 'r') as file:
 # Main Code ----------
 
 # Split the command and number into a tuple and convert to the right data type
-def split_and_convert(commands):
-    new_commands = []
-    for c in commands:
-        c = c.split()
-
-        # Convert the second part of the command to an integer
-        new_commands += [(c[0], int(c[1]))]
-    return new_commands
+def split_and_convert(command):
+    command = command.split()
+    return command[0], int(command[1])
 
 
 # Find where the sumbarine goes
 def find_position(commands):
-    commands = split_and_convert(commands)
+    commands = list(map(split_and_convert, commands))
 
     # Add to the horizontal position, depth and aim
     hor, dep, aim = 0, 0, 0
