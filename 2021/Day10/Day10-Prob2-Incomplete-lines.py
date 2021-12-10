@@ -16,31 +16,58 @@ pairs = {
 
 # Points for the competition
 points = {
-    ')': 3,
-    ']': 57,
-    '}': 1197,
-    '>': 25137
+    ')': 1,
+    ']': 2,
+    '}': 3,
+    '>': 4
 }
 
 
-# Check if a line is corrupted, and return it's score
+# Return the closers needed to complete a line
 def check_line(line: str):
     opens = []
     for item in line:
+        # Save the opening character
         if item in pairs.keys():
             opens += [item]
+
+        # Eliminate the opening character or find a corruption in this line
         if item in pairs.values():
             if item == pairs[opens[-1]]:
                 opens.pop()
             else:
                 return False
-    return True
+
+    # Reverse the list to get the closers we need in the right order
+    opens.reverse()
+    return [pairs[item] for item in opens]
+
+
+# Count the points of a line
+def points_line(closers: list):
+    global points
+    this_points = 0
+
+    # Calculate the points according to the rules
+    for item in closers:
+        this_points *= 5
+        this_points += points[item]
+    return this_points
 
 
 def find_corrupted_lines(data: list):
-    data = list(filter(check_line, data))
-    print(data)
-    input()
+    # Discard corrupted lines and get the closers needed to complete incomplete lines
+    data = list(map(check_line, data))
+    total_points = []
+
+    # Get the pitons for each line
+    for item in data:
+        if item:
+            total_points += [points_line(item)]
+
+    # Sort the points and return the middle one
+    total_points.sort()
+    return total_points[int((len(total_points) - 1) / 2)]
 
 
 # Tests and Solution ----------

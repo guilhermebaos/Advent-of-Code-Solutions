@@ -27,8 +27,11 @@ points = {
 def check_line(line: str):
     opens = []
     for item in line:
+        # Save the opening character
         if item in pairs.keys():
             opens += [item]
+
+        # Eliminate the opening character or find a corruption in this line
         if item in pairs.values():
             if item == pairs[opens[-1]]:
                 opens.pop()
@@ -37,6 +40,7 @@ def check_line(line: str):
     return 0
 
 
+# Find and return the total score of the corrupted lines
 def find_corrupted_lines(data: list):
     return sum(list(map(check_line, data)))
 
