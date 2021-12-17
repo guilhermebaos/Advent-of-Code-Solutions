@@ -8,6 +8,8 @@ with open('Day01-Test01.txt', 'r') as file:
 
 # Main Code ----------
 
+# Note to self: Don't forget to reset global variables!
+
 # Compare the depth with the next one
 def depth_increase(depth_list):
     total = 0
