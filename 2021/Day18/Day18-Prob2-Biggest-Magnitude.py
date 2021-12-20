@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 # Puzzle Input ----------
 with open('Day18-Input.txt', 'r') as file:
     puzzle = file.read().split('\n')
@@ -204,14 +206,17 @@ def solve_homework(num_str: list):
         snail_numbers += [parse_number(list(num))[1]]
     snail_numbers = list(map(SnailNumber, snail_numbers))
 
-    # Add the numbers to the total
-    total = snail_numbers.pop(0)
-    while len(snail_numbers) > 0:
-        next_num = snail_numbers.pop(0)
-        total += next_num
+    # Add the possible magnitudes to the total
+    all_magnitudes = []
+    for num1 in snail_numbers:
+        for num2 in snail_numbers:
+            # Using deepcopy because my SnailNumber Class changes its own properties after a sum
+            temp1, temp2 = deepcopy(num1), deepcopy(num2)
+            if num1 != num2:
+                all_magnitudes += [magnitude(temp1 + temp2)]
 
     # Return the magnitude of the total
-    return magnitude(total)
+    return max(all_magnitudes)
 
 
 # Tests and Solution ----------
