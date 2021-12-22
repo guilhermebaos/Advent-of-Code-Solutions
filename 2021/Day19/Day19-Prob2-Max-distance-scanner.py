@@ -72,15 +72,16 @@ def possible_match(abs_beacons, other_beacons):
                     tuple(new_other_b[i] + translation[i] for i in range(3)) for new_other_b in new_other_beacons)
 
                 if len(set(translated_beacons) & set_abs_beacons) >= 12:
-                    return translated_beacons
-    return False
+                    return translated_beacons, translation
+    return False, False
 
 
 # Find the number of beacons in range of scanners
-def number_of_beacons(data: list):
+def size_of_ocean(data: list):
     data = list(map(parse_data, data))
 
     all_beacons = set(data[0])
+    all_scanners = {(0, 0, 0)}
 
     check_next = [data.pop(0)]
     while len(check_next) > 0:
@@ -89,15 +90,21 @@ def number_of_beacons(data: list):
 
         for abs_beacon in check_now:
             for other_beacon in data[:]:
-                new_beacons = possible_match(abs_beacon, other_beacon)
+                new_beacons, translation = possible_match(abs_beacon, other_beacon)
 
                 if new_beacons:
+                    print('Match!')
                     all_beacons.update(set(new_beacons))
+
+                    all_scanners.add(tuple(translation))
+
                     check_next += [new_beacons]
                     data.remove(other_beacon)
-    return len(all_beacons)
+
+    return max(sum(abs(scanner1[i] - scanner2[i]) for i in range(3)) for scanner1 in all_scanners for scanner2 in all_scanners)
 
 
 # Tests and Solution ----------
-print(number_of_beacons(test01))
-print(number_of_beacons(puzzle))
+print(size_of_ocean(test01))
+print('\n\n')
+print(size_of_ocean(puzzle))
