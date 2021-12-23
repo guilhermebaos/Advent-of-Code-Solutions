@@ -59,18 +59,23 @@ def change_orientation(vector: tuple, orientation: tuple):
 def possible_match(abs_beacons, other_beacons):
     all_orientations = possible_orientations()
 
+    # Save the absolutely positioned beacons as a set
     set_abs_beacons = set(abs_beacons)
     for end in abs_beacons:
         for orientation in all_orientations:
 
+            # Try changing the orientation of the coordinates of all other beacons
             new_other_beacons = [change_orientation(other_b, orientation) for other_b in other_beacons]
 
+            # Try considering each beacon a possible match and make it coincide with the end beacon
             for start in new_other_beacons:
                 translation = [end[i] - start[i] for i in range(3)]
 
+                # Translate all other beacons by the same vector
                 translated_beacons = tuple(
                     tuple(new_other_b[i] + translation[i] for i in range(3)) for new_other_b in new_other_beacons)
 
+                # If there are enough matches, return the translation vector!
                 if len(set(translated_beacons) & set_abs_beacons) >= 12:
                     return translated_beacons
     return False
@@ -82,15 +87,18 @@ def number_of_beacons(data: list):
 
     all_beacons = set(data[0])
 
+    # Do a search for all scanners and try to see if they overlap with another scanner, starting at scanner 0
     check_next = [data.pop(0)]
     while len(check_next) > 0:
         check_now = check_next.copy()
         check_next = []
 
+        # Try to match these two scanners
         for abs_beacon in check_now:
             for other_beacon in data[:]:
                 new_beacons = possible_match(abs_beacon, other_beacon)
 
+                # Save the new beacons and add the scanner to be searched next
                 if new_beacons:
                     all_beacons.update(set(new_beacons))
                     check_next += [new_beacons]
