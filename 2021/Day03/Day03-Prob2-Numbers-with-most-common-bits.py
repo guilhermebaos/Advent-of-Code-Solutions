@@ -9,7 +9,6 @@ with open('Day03-Test01.txt', 'r') as file:
 # Main Code ----------
 def most_common_bits(diagnostic, index_to_check):
     # Size of binary numbers
-    len_num = len(diagnostic[0])
     len_dgc = len(diagnostic)
 
     # Get the number of ones that appear in each position

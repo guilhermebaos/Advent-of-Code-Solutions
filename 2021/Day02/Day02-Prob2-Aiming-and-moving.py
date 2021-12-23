@@ -14,7 +14,7 @@ def split_and_convert(command):
     return command[0], int(command[1])
 
 
-# Find where the sumbarine goes
+# Find where the submarine goes
 def find_position(commands):
     commands = list(map(split_and_convert, commands))
 

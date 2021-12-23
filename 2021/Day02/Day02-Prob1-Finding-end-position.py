@@ -19,7 +19,7 @@ def split_and_convert(commands):
     return new_commands
 
 
-# Find where the sumbarine goes
+# Find where the submarine goes
 def find_position(commands):
     commands = split_and_convert(commands)
 
