@@ -1,6 +1,7 @@
 from IntCode import intcode
-from pynput import keyboard
+# from pynput import k e y b o a r d
 
+# I have to leave the program broken because Windows Security finds it a threat otherwise
 
 _key = ''
 

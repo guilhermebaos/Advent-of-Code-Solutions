@@ -141,5 +141,3 @@ def reboot_reactor(initialization_procedure: list):
 # Tests and Solution ----------
 print(reboot_reactor(test02))
 print(reboot_reactor(puzzle))
-
-# 619560 is too high
