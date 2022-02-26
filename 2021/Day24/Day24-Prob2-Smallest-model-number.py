@@ -30,8 +30,8 @@ def monad_digit(digit: int, index: int, z: int, parameters: list):
     return z, x
 
 
-# Find the largest model number possible
-def largest_model_num(monad_code):
+# Find the smallest model number possible
+def smallest_model_num(monad_code):
     parameters = monad_parameters(monad_code)
     # By analysing the parameters, we see that whenever b >= 10 we  have a = 1 AND whenever b < 10 we have a = 26
     # This means that whenever b >= 10, x is 1, because it's impossible for z % 26 + b to be only one digit
@@ -61,4 +61,4 @@ def largest_model_num(monad_code):
 
 
 # Tests and Solution ----------
-print(largest_model_num(puzzle))
+print(smallest_model_num(puzzle))
