@@ -24,16 +24,22 @@ for n in range(1, 26):
 
 # Puzzle Input ----------
 with open('{name}-Input.txt', 'r') as file:
-    puzzle = file.read().split('\\n')
+    puzzle = file.read().split("\\n")
 
 with open('{name}-Test01.txt', 'r') as file:
-    test01 = file.read().split('\\n')
+    test01 = file.read().split("\\n")
 
 
 # Code ------------------
+def solution_day{n}_prob1(puzzle_in: list):
+    return
 
 
 # Tests and Solution ---
+print("Tests:")
+print(solution_day{n}_prob1(test01))
+print("\\nSolution:")
+print(solution_day{n}_prob1(puzzle))
 """)
 
     with open(fr"{name}\{name}-Prob2.py", "w") as file:
@@ -41,14 +47,20 @@ with open('{name}-Test01.txt', 'r') as file:
 
 # Puzzle Input ----------
 with open('{name}-Input.txt', 'r') as file:
-    puzzle = file.read().split('\\n')
+    puzzle = file.read().split("\\n")
 
 with open('{name}-Test01.txt', 'r') as file:
-    test01 = file.read().split('\\n')
+    test01 = file.read().split("\\n")
 
 
 # Code ------------------
+def solution_day{n}_prob2(puzzle_in: list):
+    return
 
 
 # Tests and Solution ---
+print("Tests:")
+print(solution_day{n}_prob2(test01))
+print("\\nSolution:")
+print(solution_day{n}_prob2(puzzle))
 """)
