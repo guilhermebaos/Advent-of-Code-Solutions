@@ -9,8 +9,19 @@ with open('Day2-Test01.txt', 'r') as file:
 
 
 # Code ------------------
-def solution_day2_prob1(puzzle_in: list):
-    return
+def game_score(opp: str, pla: str) -> int:
+    opp = (ord(opp) - ord("A"))
+    pla = (ord(pla) - ord("X"))
+
+    return (pla + 1) + (3 if pla == opp else 6 if (pla - 1) % 3 == opp else 0)
+
+
+def solution_day2_prob1(puzzle_in: list) -> int:
+    total = 0
+    for item in puzzle_in:
+        o, p = item.split(" ")
+        total += game_score(o, p)
+    return total
 
 
 # Tests and Solution ---
@@ -18,3 +29,6 @@ print("Tests:")
 print(solution_day2_prob1(test01))
 print("\nSolution:")
 print(solution_day2_prob1(puzzle))
+
+# 14000 is too high
+# 11135 is too low
