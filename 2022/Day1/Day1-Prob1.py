@@ -9,6 +9,8 @@ with open('Day1-Test01.txt', 'r') as file:
 
 
 # Code ------------------
+
+# Get maximum calories on an Elf
 def solution_day1_prob1(puzzle_in: list):
     maxi = 0
     for item in puzzle_in:

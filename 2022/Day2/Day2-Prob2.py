@@ -9,9 +9,12 @@ with open('Day2-Test01.txt', 'r') as file:
 
 
 # Code ------------------
+
+# Score of a round of Rock Paper Scissors
 def game_score(opp: str, pla: str) -> int:
     opp = (ord(opp) - ord("A"))
 
+    # Determine our move based on if we should win, tie or lose
     pla = (opp - 1 if pla == "X" else opp if pla == "Y" else opp + 1) % 3
 
     return (pla + 1) + (3 if pla == opp else 6 if (pla - 1) % 3 == opp else 0)
@@ -19,6 +22,8 @@ def game_score(opp: str, pla: str) -> int:
 
 def solution_day2_prob2(puzzle_in: list) -> int:
     total = 0
+
+    # Get the plays of each round and calculate the total score
     for item in puzzle_in:
         o, p = item.split(" ")
         total += game_score(o, p)
