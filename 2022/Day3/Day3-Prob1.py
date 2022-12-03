@@ -10,7 +10,14 @@ with open('Day3-Test01.txt', 'r') as file:
 
 # Code ------------------
 def solution_day3_prob1(puzzle_in: list):
-    return
+    total = 0
+
+    for item in puzzle_in:
+        len_item = len(item)
+        a, b = set(item[0:len_item // 2]), set(item[len_item // 2:])
+        char_num = ord(list(a.intersection(b))[0])
+        total += 1 + char_num + (-ord("a") if ord("a") <= char_num <= ord("z") else -ord("A") + 26)
+    return total
 
 
 # Tests and Solution ---
