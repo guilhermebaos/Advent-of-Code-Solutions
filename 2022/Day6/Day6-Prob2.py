@@ -10,7 +10,19 @@ with open('Day6-Test01.txt', 'r') as file:
 
 # Code ------------------
 def solution_day6_prob2(puzzle_in: list):
-    return
+    char_list = []
+
+    # Process each line
+    for item in puzzle_in:
+        char_num = 0
+        for i in range(len(item) - 3):
+
+            # See if fourteen sequential characters are different
+            if len(set(item[i:i + 14])) == 14:
+                char_num = i + 14
+                break
+        char_list += [char_num]
+    return char_list
 
 
 # Tests and Solution ---
