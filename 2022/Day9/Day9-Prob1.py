@@ -67,5 +67,3 @@ print("Tests:")
 print(solution_day9_prob1(test01))
 print("\nSolution:")
 print(solution_day9_prob1(puzzle))
-
-# 6036 is too high
