@@ -10,7 +10,17 @@ with open('Day18-Test01.txt', 'r') as file:
 
 # Code ------------------
 def solution_day18_prob1(puzzle_in: list):
-    return
+    coords = list(map(lambda x: tuple(map(int, x.split(","))), puzzle_in))
+    total = 0
+
+    # Find total surface area
+    for item in coords:
+        total += 6
+        for delta in [-1, 1]:
+            total -= (item[0] + delta, item[1], item[2]) in coords
+            total -= (item[0], item[1] + delta, item[2]) in coords
+            total -= (item[0], item[1], item[2] + delta) in coords
+    return total
 
 
 # Tests and Solution ---
