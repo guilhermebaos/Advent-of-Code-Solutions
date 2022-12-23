@@ -1,22 +1,2 @@
-class BEE:
-
-    def __init__(self):
-        self.total = 0
-
-
-    def aumenta(self):
-        self.total += 1
-
-
-a = {
-    "AA": BEE(),
-    "BB": BEE()
-}
-
-b = a.copy()
-b["AA"].aumenta()
-b["AA"].aumenta()
-b["AA"].aumenta()
-
-print(a["AA"].total)
-print(b["AA"].total)
+a = [1, 2, 3, 4]
+print(list(filter(lambda x: x % 2 == 0, a)))
