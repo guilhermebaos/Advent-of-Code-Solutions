@@ -10,7 +10,7 @@ with open('Day25-Test01.txt', 'r') as file:
 
 # Code ------------------
 def solution_day25_prob2(puzzle_in: list):
-    return
+    return "Merry Christmas!"
 
 
 # Tests and Solution ---
